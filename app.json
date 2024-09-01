@@ -5,23 +5,43 @@
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
-    "userInterfaceStyle": "light",
+    "userInterfaceStyle": "automatic",
     "splash": {
-      "image": "./assets/splash.png",
+      "image": "./assets/splash.gif",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#010e19"
     },
     "ios": {
       "supportsTablet": true
     },
     "android": {
+      "splash": {
+        "image": "./assets/splash.png",
+        "resizeMode": "contain",
+        "backgroundColor": "#010e19"
+      },
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#ffffff"
+        "backgroundColor": "#010e19"
       }
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "plugins": [
+      [
+        "expo-font",
+        {
+          "fonts": [
+            "./assets/fonts/RobotoBlack.ttf",
+            "./assets/fonts/RobotoBold.ttf",
+            "./assets/fonts/RobotoLight.ttf",
+            "./assets/fonts/RobotoMedium.ttf",
+            "./assets/fonts/RobotoRegular.ttf",
+            "./assets/fonts/RobotoThin.ttf"
+          ]
+        }
+      ]
+    ]
   }
 }

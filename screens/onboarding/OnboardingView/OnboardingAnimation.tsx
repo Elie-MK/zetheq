@@ -35,7 +35,7 @@ const OnboardingAnimation = ({ isLastIndex, slideSkip, slideTo }: Props) => {
   }));
 
   return (
-    <>
+    <View style={{ marginHorizontal: 20 }}>
       <Reanimated.View style={[animatedStyle]}>
         {isLastIndex ? (
           <Button
@@ -49,7 +49,7 @@ const OnboardingAnimation = ({ isLastIndex, slideSkip, slideTo }: Props) => {
       <Reanimated.View style={[animatedStyle, { opacity: opacity1 }]}>
         <SkipButton onPress={slideSkip} title="Skip" />
       </Reanimated.View>
-    </>
+    </View>
   );
 };
 

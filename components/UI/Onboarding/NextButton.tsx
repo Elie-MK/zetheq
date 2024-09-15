@@ -31,7 +31,6 @@ const styles = StyleSheet.create({
   container: {
     backgroundColor: colorsGlobal.main,
     paddingVertical: 20,
-    marginHorizontal: 20,
     borderRadius: 10,
   },
   text: {

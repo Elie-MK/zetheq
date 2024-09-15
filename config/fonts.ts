@@ -1,4 +1,5 @@
 import * as Font from "expo-font";
+import * as SplashScreen from "expo-splash-screen";
 
 export const loadFonts = async (): Promise<void> => {
   await Font.loadAsync({
@@ -9,4 +10,5 @@ export const loadFonts = async (): Promise<void> => {
     "Roboto-Regular": require("../assets/fonts/RobotoRegular.ttf"),
     "Roboto-Thin": require("../assets/fonts/RobotoThin.ttf"),
   });
+  SplashScreen.preventAutoHideAsync();
 };

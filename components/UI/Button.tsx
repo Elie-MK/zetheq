@@ -10,17 +10,11 @@ import { colorsGlobal } from "../../utilities/colorsGlobal";
 
 type Props = {
   title: string;
-  onPress: () => void;
 } & TouchableOpacityProps;
 
-const Button = ({ title, onPress, ...props }: Props) => {
+const Button = ({ title, ...props }: Props) => {
   return (
-    <TouchableOpacity
-      onPress={onPress}
-      {...props}
-      activeOpacity={0.8}
-      style={styles.container}
-    >
+    <TouchableOpacity {...props} activeOpacity={0.8} style={styles.container}>
       <Text style={styles.text}>{title}</Text>
     </TouchableOpacity>
   );
@@ -32,7 +26,6 @@ const styles = StyleSheet.create({
   container: {
     backgroundColor: colorsGlobal.main,
     paddingVertical: 20,
-    marginHorizontal: 20,
     borderRadius: 10,
   },
   text: {

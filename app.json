@@ -39,6 +39,18 @@
           ]
         }
       ]
-    ]
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "a21d9e04-24f4-4e6e-b5e9-2bb97710022f"
+      }
+    },
+    "owner": "eliemk25",
+    "runtimeVersion": {
+      "policy": "appVersion"
+    },
+    "updates": {
+      "url": "https://u.expo.dev/a21d9e04-24f4-4e6e-b5e9-2bb97710022f"
+    }
   }
 }

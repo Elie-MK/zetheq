@@ -1,8 +1,12 @@
-import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View } from "react-native";
 import * as SplashScreen from "expo-splash-screen";
 import { useEffect, useState } from "react";
 import { loadFonts } from "./config/fonts";
+import { NavigationContainer } from "@react-navigation/native";
+import { createStackNavigator } from "@react-navigation/stack";
+import Onboarding from "./screens/onboarding/OnboardingView/Onboarding";
+import { registerRootComponent } from "expo";
+import AuthNavigation from "./navigations/AuthNavigation";
+import { StatusBar } from "react-native";
 
 SplashScreen.preventAutoHideAsync();
 
@@ -21,21 +25,21 @@ export default function App() {
     SplashScreen.hideAsync();
   }
 
+  const Stack = createStackNavigator();
+
   return (
-    <View style={styles.container}>
-      <Text style={{ fontFamily: "Roboto-Thin" }}>
-        Open up App.tsx to start working on your app!
-      </Text>
-      <StatusBar style="auto" />
-    </View>
+    <NavigationContainer>
+      <StatusBar barStyle={"dark-content"} />
+      <Stack.Navigator
+        screenOptions={{
+          headerShown: false,
+        }}
+      >
+        <Stack.Screen name="Onboarding" component={Onboarding} />
+        <Stack.Screen name="AuthNavigation" component={AuthNavigation} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-});
+registerRootComponent(App);

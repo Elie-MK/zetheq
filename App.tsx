@@ -6,6 +6,7 @@ import { createStackNavigator } from "@react-navigation/stack";
 import Onboarding from "./screens/onboarding/OnboardingView/Onboarding";
 import AuthNavigation from "./navigations/AuthNavigation";
 import { StatusBar } from "react-native";
+import MainHomeNavigation from "./navigations/MainHomeNavigation";
 
 export default function App() {
   const [fontsLoaded, setFontsLoaded] = useState<boolean>(false);
@@ -32,10 +33,11 @@ export default function App() {
         screenOptions={{
           headerShown: false,
         }}
-        initialRouteName="Onboarding"
+        initialRouteName="MainHome"
       >
         <Stack.Screen name="Onboarding" component={Onboarding} />
         <Stack.Screen name="AuthNavigation" component={AuthNavigation} />
+        <Stack.Screen name="MainHome" component={MainHomeNavigation} />
       </Stack.Navigator>
     </NavigationContainer>
   );

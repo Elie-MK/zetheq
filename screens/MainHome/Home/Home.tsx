@@ -1,17 +1,19 @@
-import { SafeAreaView, StyleSheet, Text, View } from "react-native";
+import { Platform, StatusBar, StyleSheet, View } from "react-native";
 import React from "react";
-import HeaderHome from "./HeaderHome";
 import { colorsGlobal } from "../../../utilities/colorsGlobal";
+import Header from "../../../components/Header";
+import { HeaderEnums } from "../../../utilities/Enums/header/Header.enums";
+import MainContainer from "../MainContainer";
 
 type Props = {};
 
 const Home = (props: Props) => {
   return (
-    <SafeAreaView style={styles.container}>
-      <View style={styles.secondContainer}>
-        <HeaderHome />
+    <MainContainer>
+      <View>
+        <Header screen={HeaderEnums.HOME} />
       </View>
-    </SafeAreaView>
+    </MainContainer>
   );
 };
 
@@ -21,8 +23,10 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: colorsGlobal.white,
+    paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : undefined,
   },
   secondContainer: {
-    marginHorizontal: 20,
+    flex: 1,
+    marginHorizontal: 10,
   },
 });

@@ -22,7 +22,12 @@ const Header = ({ screen }: Props) => {
     <View style={styles.container}>
       <View style={styles.titleSection}>
         <Image source={require("../assets/icon.png")} style={styles.image} />
-        <Text style={[styles.title, { fontSize: dimension < 380 ? 18 : 24 }]}>
+        <Text
+          style={{
+            fontSize: dimension < 380 ? 18 : 24,
+            fontFamily: "Roboto-bold",
+          }}
+        >
           {screen}
         </Text>
       </View>
@@ -76,6 +81,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
+    marginRight: 10,
   },
   image: {
     width: 40,
@@ -86,10 +92,6 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     gap: 10,
-  },
-  title: {
-    fontSize: 24,
-    fontFamily: "Roboto-bold",
   },
   iconsSection: {
     flexDirection: "row",

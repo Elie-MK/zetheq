@@ -31,6 +31,6 @@ const styles = StyleSheet.create({
   },
   secondContainer: {
     flex: 1,
-    marginHorizontal: 10,
+    marginLeft: 10,
   },
 });

@@ -12,9 +12,11 @@ import { FontAwesome } from "@expo/vector-icons";
 import { colorsGlobal } from "../utilities/colorsGlobal";
 import { handleLimitedTitle } from "../utilities/helper/limitedTitle";
 
-type Props = {};
+type Props = {
+  purchased?: boolean;
+};
 
-const BookCard = (props: Props) => {
+const BookCard = ({ purchased }: Props) => {
   const width = Dimensions.get("window").width;
   return (
     <TouchableOpacity activeOpacity={0.8}>
@@ -57,9 +59,15 @@ const BookCard = (props: Props) => {
                 4.6
               </Text>
             </View>
-            <Text style={[styles.price, { fontSize: width < 380 ? 12 : 18 }]}>
-              $7.50
-            </Text>
+            {!purchased ? (
+              <Text style={[styles.price, { fontSize: width < 380 ? 12 : 18 }]}>
+                $7.50
+              </Text>
+            ) : (
+              <Text style={[styles.price, { fontSize: width < 380 ? 12 : 18 }]}>
+                Purchased
+              </Text>
+            )}
           </View>
         </View>
       </View>

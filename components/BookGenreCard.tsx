@@ -6,7 +6,7 @@ type Props = {};
 
 const BookGenreCard = (props: Props) => {
   return (
-    <View>
+    <View style={{ marginRight: 10 }}>
       <ImageBackground
         source={{
           uri: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9BFuuLxEn2NLjcV5a_qYVOOCUJRHZRP-7Ig&s",

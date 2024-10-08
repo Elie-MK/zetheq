@@ -3,14 +3,16 @@ import React from "react";
 import Header from "../../../components/Header";
 import { HeaderEnums } from "../../../utilities/Enums/header/Header.enums";
 import MainContainer from "../MainContainer";
+import DiscoveryAllSection from "./DiscoveryAllSection";
 
 type Props = {};
 
 const Discover = (props: Props) => {
   return (
     <MainContainer>
-      <View>
+      <View style={styles.container}>
         <Header screen={HeaderEnums.DISCOVERY} />
+        <DiscoveryAllSection />
       </View>
     </MainContainer>
   );
@@ -18,4 +20,8 @@ const Discover = (props: Props) => {
 
 export default Discover;
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
+});

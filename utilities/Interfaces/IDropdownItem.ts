@@ -5,4 +5,5 @@ export interface IDropdownItem {
     | "document-text-outline"
     | "navigate-outline"
     | "information-circle-outline";
+  isBorder?: boolean;
 }

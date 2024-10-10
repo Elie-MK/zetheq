@@ -8,6 +8,8 @@ const WishlistItem = (props: Props) => {
   return (
     <ScrollView style={{ flex: 1 }}>
       <WishlistCard />
+      <WishlistCard />
+      <WishlistCard />
     </ScrollView>
   );
 };

@@ -77,7 +77,6 @@ const styles = StyleSheet.create({
     backgroundColor: colorsGlobal.white,
     position: "absolute",
     borderRadius: 20,
-    zIndex: 2,
     width: 220,
     left: -220,
     flexDirection: "row",

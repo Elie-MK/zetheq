@@ -31,20 +31,14 @@ const MenuDropdown = ({ children, ...props }: Props) => {
     { id: 1, title: "Remove Download", iconName: "trash-outline" },
     {
       id: 2,
-      title: "View Series",
-      iconName: "document-text-outline",
-      isBorder: true,
-    },
-    {
-      id: 3,
       title: "Mark as Finished",
       iconName: "checkbox-outline",
       isBorder: true,
     },
-    { id: 4, title: "About Ebook", iconName: "information-circle-outline" },
+    { id: 3, title: "About Ebook", iconName: "information-circle-outline" },
   ];
   return (
-    <View style={styles.container}>
+    <View>
       <TouchableOpacity onPress={props.handleOpenDropdown} activeOpacity={0.6}>
         {children}
       </TouchableOpacity>
@@ -56,7 +50,6 @@ const MenuDropdown = ({ children, ...props }: Props) => {
       )}
       {props.isDropdownOpen && props.state === BookState.PURCHASED && (
         <MenuDropdownItem
-          key={2}
           items={Purchased}
           onSelect={() => props.onSelect("")}
         />
@@ -67,26 +60,4 @@ const MenuDropdown = ({ children, ...props }: Props) => {
 
 export default MenuDropdown;
 
-const styles = StyleSheet.create({
-  container: {},
-  dropdownMenuContainer: {
-    shadowColor: colorsGlobal.main,
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.25,
-    backgroundColor: colorsGlobal.white,
-    borderRadius: 20,
-    width: 220,
-    flexDirection: "row",
-    justifyContent: "center",
-    alignItems: "center",
-  },
-
-  item: {
-    flexDirection: "row",
-    alignItems: "center",
-    gap: 5,
-  },
-  itemTitle: {
-    fontWeight: "500",
-  },
-});
+const styles = StyleSheet.create({});

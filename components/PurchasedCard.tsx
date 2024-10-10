@@ -106,7 +106,8 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "space-between",
     paddingRight: 10,
-    marginBottom: 10,
+    marginBottom: 20,
+    position: "relative",
   },
   imageContainer: {
     flexDirection: "row",

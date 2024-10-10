@@ -6,83 +6,60 @@ import {
   View,
 } from "react-native";
 import React from "react";
-import { Entypo, Ionicons } from "@expo/vector-icons";
+import { Entypo } from "@expo/vector-icons";
 import { colorsGlobal } from "../utilities/colorsGlobal";
+import { BookState } from "../utilities/Enums/BookState.enums";
 import { IDropdownItem } from "../utilities/Interfaces/IDropdownItem";
+import MenuDropdownItem from "./MenuDropdownItem";
 
 type Props = {
   isDropdownOpen?: boolean;
   items?: string;
   onSelect: (key: string) => void;
   handleOpenDropdown: () => void;
+  state: BookState;
+  children: React.ReactNode;
 };
 
-const MenuDropdown = (props: Props) => {
-  const items: IDropdownItem[] = [
-    { id: 1, title: "Remove from Wishlist", iconName: "document-text-outline" },
+const MenuDropdown = ({ children, ...props }: Props) => {
+  const NotPurchased: IDropdownItem[] = [
+    { id: 1, title: "Remove from Wishlist", iconName: "trash-outline" },
     { id: 2, title: "Share", iconName: "navigate-outline", isBorder: true },
     { id: 3, title: "About Ebook", iconName: "information-circle-outline" },
   ];
-  const width = Dimensions.get("window").width;
-
+  const Purchased: IDropdownItem[] = [
+    { id: 1, title: "Remove Download", iconName: "trash-outline" },
+    {
+      id: 2,
+      title: "View Series",
+      iconName: "document-text-outline",
+      isBorder: true,
+    },
+    {
+      id: 3,
+      title: "Mark as Finished",
+      iconName: "checkbox-outline",
+      isBorder: true,
+    },
+    { id: 4, title: "About Ebook", iconName: "information-circle-outline" },
+  ];
   return (
     <View style={styles.container}>
       <TouchableOpacity onPress={props.handleOpenDropdown} activeOpacity={0.6}>
-        <Entypo
-          name="dots-three-vertical"
-          size={24}
-          color={colorsGlobal.main}
-        />
+        {children}
       </TouchableOpacity>
-      {props.isDropdownOpen && (
-        <View
-          style={[
-            styles.dropdownMenuContainer,
-            {
-              top: width < 380 ? -40 : -60,
-            },
-          ]}
-        >
-          <View>
-            {items.map(({ id, title, iconName, isBorder }) => (
-              <View key={id}>
-                {isBorder && (
-                  <View
-                    style={{
-                      borderColor: colorsGlobal.gray,
-                      borderTopWidth: 1,
-                    }}
-                  />
-                )}
-                <TouchableOpacity
-                  key={id}
-                  style={[styles.item, { padding: width < 380 ? 7 : 10 }]}
-                  activeOpacity={0.7}
-                  onPress={() => props.onSelect("41")}
-                >
-                  <Ionicons name={iconName} size={24} color="black" />
-
-                  <Text
-                    style={[
-                      styles.itemTitle,
-                      { fontSize: width < 380 ? 12 : 16 },
-                    ]}
-                  >
-                    {title}
-                  </Text>
-                </TouchableOpacity>
-                {isBorder && (
-                  <View
-                    style={{
-                      borderColor: colorsGlobal.gray,
-                      borderBottomWidth: 1,
-                    }}
-                  />
-                )}
-              </View>
-            ))}
-          </View>
-        </View>
+      {props.isDropdownOpen && props.state === BookState.NOT_PURCHASED && (
+        <MenuDropdownItem
+          items={NotPurchased}
+          onSelect={() => props.onSelect("")}
+        />
+      )}
+      {props.isDropdownOpen && props.state === BookState.PURCHASED && (
+        <MenuDropdownItem
+          key={2}
+          items={Purchased}
+          onSelect={() => props.onSelect("")}
+        />
       )}
     </View>
   );
@@ -91,19 +68,14 @@ const MenuDropdown = (props: Props) => {
 export default MenuDropdown;
 
 const styles = StyleSheet.create({
-  container: {
-    // position: "relative",
-  },
+  container: {},
   dropdownMenuContainer: {
     shadowColor: colorsGlobal.main,
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.25,
     backgroundColor: colorsGlobal.white,
-    position: "absolute",
     borderRadius: 20,
     width: 220,
-
-    left: -220,
     flexDirection: "row",
     justifyContent: "center",
     alignItems: "center",

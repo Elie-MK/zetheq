@@ -7,16 +7,15 @@ import {
   View,
 } from "react-native";
 import React, { useState } from "react";
-import { Entypo, FontAwesome } from "@expo/vector-icons";
-import { colorsGlobal } from "../utilities/colorsGlobal";
 import MenuDropdown from "./MenuDropdown";
 import { handleHaptics } from "../config/Haptics";
-import BookCard from "./BookCard";
+import { colorsGlobal } from "../utilities/colorsGlobal";
+import { Entypo, FontAwesome } from "@expo/vector-icons";
 import { BookState } from "../utilities/Enums/BookState.enums";
 
 type Props = {};
 
-const WishlistCard = (props: Props) => {
+const PurchasedCard = (props: Props) => {
   const width = Dimensions.get("window").width;
   const [openDropdown, setOpenDropdown] = useState<boolean>(false);
 
@@ -70,16 +69,24 @@ const WishlistCard = (props: Props) => {
             </Text>
           </View>
           <Text style={[styles.price, { fontSize: width < 380 ? 14 : 16 }]}>
-            $9.99
+            Purchased
           </Text>
         </View>
       </View>
-
+      <View>
+        <TouchableOpacity>
+          <FontAwesome
+            name="check-square"
+            size={24}
+            color={colorsGlobal.main}
+          />
+        </TouchableOpacity>
+      </View>
       <MenuDropdown
         handleOpenDropdown={handleOpenDropdown}
         isDropdownOpen={openDropdown}
         onSelect={handleSelect}
-        state={BookState.NOT_PURCHASED}
+        state={BookState.PURCHASED}
       >
         <Entypo
           name="dots-three-vertical"
@@ -91,7 +98,7 @@ const WishlistCard = (props: Props) => {
   );
 };
 
-export default WishlistCard;
+export default PurchasedCard;
 
 const styles = StyleSheet.create({
   container: {
@@ -102,7 +109,6 @@ const styles = StyleSheet.create({
     marginBottom: 10,
   },
   imageContainer: {
-    position: "relative",
     flexDirection: "row",
     gap: 15,
   },
@@ -126,6 +132,6 @@ const styles = StyleSheet.create({
   },
   price: {
     fontWeight: "600",
-    color: colorsGlobal.main,
+    color: colorsGlobal.secondGray,
   },
 });

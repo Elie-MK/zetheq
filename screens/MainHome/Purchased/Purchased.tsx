@@ -3,14 +3,16 @@ import React from "react";
 import MainContainer from "../MainContainer";
 import Header from "../../../components/Header";
 import { HeaderEnums } from "../../../utilities/Enums/header/Header.enums";
+import PurchasedList from "./PurchasedList";
 
 type Props = {};
 
 const Purchased = (props: Props) => {
   return (
     <MainContainer>
-      <View>
+      <View style={{ flex: 1 }}>
         <Header screen={HeaderEnums.PURCHASED} />
+        <PurchasedList />
       </View>
     </MainContainer>
   );

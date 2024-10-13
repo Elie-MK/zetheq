@@ -3,14 +3,18 @@ import React from "react";
 import MainContainer from "../MainContainer";
 import Header from "../../../components/Header";
 import { HeaderEnums } from "../../../utilities/Enums/header/Header.enums";
+import UserProfile from "./UserProfile";
+import Settings from "./Settings";
 
 type Props = {};
 
 const Account = (props: Props) => {
   return (
     <MainContainer>
-      <View>
+      <View style={{ flex: 1 }}>
         <Header screen={HeaderEnums.ACCOUNT} />
+        <UserProfile />
+        <Settings />
       </View>
     </MainContainer>
   );
